@@ -3,6 +3,7 @@ class SkillManager < Formula
   homepage "https://github.com/mode-io/skill-manager"
   license "MIT"
   version "0.1.0"
+  preserve_rpath
 
   on_arm do
     url "https://github.com/mode-io/skill-manager/releases/download/v0.1.0/skill-manager-v0.1.0-darwin-arm64.tar.gz"
@@ -15,7 +16,8 @@ class SkillManager < Formula
   end
 
   def install
-    libexec.install Dir["skill-manager/*"]
+    staged_root = (buildpath/"skill-manager").directory? ? buildpath/"skill-manager" : buildpath
+    libexec.install staged_root.children
     bin.install_symlink libexec/"skill-manager" => "skill-manager"
   end
 
