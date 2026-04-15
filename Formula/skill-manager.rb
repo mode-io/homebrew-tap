@@ -7,12 +7,12 @@ class SkillManager < Formula
 
   on_arm do
     url "https://github.com/mode-io/skill-manager/releases/download/v0.1.0/skill-manager-v0.1.0-darwin-arm64.tar.gz"
-    sha256 "08de0904fd6c5118e886bf1ae4ef7241a59eab083598734d831033e8157bd671"
+    sha256 "a35759cadc6165344fa42508ec7a3c1f3e62f92892f0e27afef594f3411fc3e7"
   end
 
   on_intel do
     url "https://github.com/mode-io/skill-manager/releases/download/v0.1.0/skill-manager-v0.1.0-darwin-x64.tar.gz"
-    sha256 "6efad865ccd8c9040d607742e9bca3e7d3f7e77eb24441ebf87cefce61226ed3"
+    sha256 "e2c711a6becd31df21558fc766fb733cc6ad22bee0c76ad49f563cba4609e1c1"
   end
 
   def install
