@@ -3,21 +3,19 @@ class SkillManager < Formula
   homepage "https://github.com/mode-io/skill-manager"
   license "MIT"
   version "0.1.0"
-  preserve_rpath
 
   on_arm do
     url "https://github.com/mode-io/skill-manager/releases/download/v0.1.0/skill-manager-v0.1.0-darwin-arm64.tar.gz"
-    sha256 "a35759cadc6165344fa42508ec7a3c1f3e62f92892f0e27afef594f3411fc3e7"
+    sha256 "bc8c6f8420c7aa2a2c61d82f5c703f200e528310d2045c5252acbb287ff0b0d8"
   end
 
   on_intel do
     url "https://github.com/mode-io/skill-manager/releases/download/v0.1.0/skill-manager-v0.1.0-darwin-x64.tar.gz"
-    sha256 "e2c711a6becd31df21558fc766fb733cc6ad22bee0c76ad49f563cba4609e1c1"
+    sha256 "8b2d7a1dd5807c629513ac3c5ef5dbfa971ebbc103ec04db36f5a302613d8939"
   end
 
   def install
-    staged_root = (buildpath/"skill-manager").directory? ? buildpath/"skill-manager" : buildpath
-    libexec.install staged_root.children
+    libexec.install Dir["skill-manager/*"]
     bin.install_symlink libexec/"skill-manager" => "skill-manager"
   end
 
