@@ -2,17 +2,17 @@ class SkillManager < Formula
   desc "Local app and browser UI for universal skill management across agent harnesses"
   homepage "https://github.com/mode-io/skill-manager"
   license "MIT"
-  version "0.2.0"
+  version "0.2.1"
   preserve_rpath
 
   on_arm do
-    url "https://github.com/mode-io/skill-manager/releases/download/v0.2.0/skill-manager-v0.2.0-darwin-arm64.tar.gz"
-    sha256 "3a3ee8d409865b9419eaeb000255ad6e13b8cf365183b85c2344f2501c68eed6"
+    url "https://github.com/mode-io/skill-manager/releases/download/v0.2.1/skill-manager-v0.2.1-darwin-arm64.tar.gz"
+    sha256 "4155cbd5c2a0e51134746d3b97c1fecefa76eabb4d289661b20f63bd55d82c4b"
   end
 
   on_intel do
-    url "https://github.com/mode-io/skill-manager/releases/download/v0.2.0/skill-manager-v0.2.0-darwin-x64.tar.gz"
-    sha256 "aa0d6a0d54c9c5fcc170349a5cb20d817c0f9e377c792f4b95d0a69b05ef4516"
+    url "https://github.com/mode-io/skill-manager/releases/download/v0.2.1/skill-manager-v0.2.1-darwin-x64.tar.gz"
+    sha256 "3ede3c286647f1c99b35dc291dd03ca608658d204bc9671d4816bb9b3239f2e5"
   end
 
   def install
@@ -23,6 +23,6 @@ class SkillManager < Formula
 
   test do
     output = shell_output("#{bin}/skill-manager --version")
-    assert_match "0.2.0", output
+    assert_match "0.2.1", output
   end
 end
