@@ -2,25 +2,27 @@ class SkillManager < Formula
   desc "Local app and browser UI for universal skill management across agent harnesses"
   homepage "https://github.com/mode-io/skill-manager"
   license "MIT"
-  version "0.1.0"
+  version "0.2.0"
+  preserve_rpath
 
   on_arm do
-    url "https://github.com/mode-io/skill-manager/releases/download/v0.1.0/skill-manager-v0.1.0-darwin-arm64.tar.gz"
-    sha256 "bc8c6f8420c7aa2a2c61d82f5c703f200e528310d2045c5252acbb287ff0b0d8"
+    url "https://github.com/mode-io/skill-manager/releases/download/v0.2.0/skill-manager-v0.2.0-darwin-arm64.tar.gz"
+    sha256 "3a3ee8d409865b9419eaeb000255ad6e13b8cf365183b85c2344f2501c68eed6"
   end
 
   on_intel do
-    url "https://github.com/mode-io/skill-manager/releases/download/v0.1.0/skill-manager-v0.1.0-darwin-x64.tar.gz"
-    sha256 "8b2d7a1dd5807c629513ac3c5ef5dbfa971ebbc103ec04db36f5a302613d8939"
+    url "https://github.com/mode-io/skill-manager/releases/download/v0.2.0/skill-manager-v0.2.0-darwin-x64.tar.gz"
+    sha256 "aa0d6a0d54c9c5fcc170349a5cb20d817c0f9e377c792f4b95d0a69b05ef4516"
   end
 
   def install
-    libexec.install Dir["skill-manager/*"]
+    staged_root = (buildpath/"skill-manager").directory? ? buildpath/"skill-manager" : buildpath
+    libexec.install staged_root.children
     bin.install_symlink libexec/"skill-manager" => "skill-manager"
   end
 
   test do
     output = shell_output("#{bin}/skill-manager --version")
-    assert_match "0.1.0", output
+    assert_match "0.2.0", output
   end
 end
